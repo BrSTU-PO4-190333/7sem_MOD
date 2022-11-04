@@ -1,0 +1,1537 @@
+\begin{center}
+  \textbf{Отчёт лабораторной работы №\envReportLabNumber}
+\end{center}
+
+\textbf{Тема}:
+<<\envReportTitle>>
+
+\textbf{Цель}:
+изучить основы методов Machine Learning в контексте задачи кластерного анализа (cluster analysis),
+приобрести навыки работы с методами Machine Learning в системе STATISTICA StatSoft,
+осуществить обработку методами Machine Learning индивидуального набора данных и интерпретацию результатов.
+
+% = = = = = = = = = = = = = = = =
+
+\phantomsection
+\addcontentsline{toc}{section}{Подготовка к лабораторной работе}
+
+\begin{center}
+  \textbf{Подготовка к лабораторной работе}
+\end{center}
+
+Для лабораторной работы нужна программа <<Statistica 10>>.
+У меня операционная система Ubuntu 22.04.
+Statistica 10 под операционную систему WinXP - Win7.
+Чтобы запустить на своей операционной системе программу я буду использовать виртуальную машину.
+
+Чтобы установить Windows XP мне нужен диск (ISO-образ).
+Microsoft не поддерживает Windows XP в 2022 году.
+С сервером Microsoft не скачать Windows XP.
+Буду скачивать ISO-образ с торрент \cite{TorrentWinXP}.
+Торрент буду скачивать через open source программу qBitTorrent \cite{downloadQBitTorrent}.
+
+В качестве виртуальной машины буду использовать Oracle Virtual Box \cite{downloadVirtualBox}.
+Подключаю ISO образ к виртуальной машине и устанавливаю Windows XP.
+
+Statistica 10 прийдется скачать с торрент трекера \cite{downloadStatistica10}.
+Нашел не устанавливаемую версию, а portable (переносимую), которая не засоряет систему.
+Запускается *.exe файл и все настройки хранятся в папке "STATISTICA 10 RU" рядом с файлом Ststatistica\_10\_ru\_portable.exe. 
+
+Statistica 10 сразу не запуститься, ибо скажет, что не хватает dll.
+Скачаем Visual C++ 2008 \cite{downloadVisualCpp2008}.
+
+Для удобства передачи файлов можно использовать либо через почту и мессенджеры в браузере Firefox 52.9.0esr \cite{downloadFirefox5290esr},
+либо подключить общий папки (диск Z).
+
+\begin{center}
+  \textbf{Пример использования кластерного анализа STATISTICA в автостраховании}
+\end{center}
+
+Я в Libre Office Calc \cite{downloadLibreOffice} создал файл
+<<cars\_my.xls>> и заполнил данные как в методичке для того, чтобы попробовать сделать так как в методичке по примеру, а затем сделать свой 5-ый вариант.
+
+\lstinputlisting[name=cars_my.csv (cars_my.xls)]
+{../sources/cars_my/cars_my.csv}
+
+Удаляю папку <<Statistica 10 RUS>>.
+
+Запускаю Ststatistica\_10\_ru\_portable.exe.
+
+Главная > Открыть > cars\_my.xls > Открыть \\
+> Импортировать выбранные лист в Таблицу данных > Sheet1 > OK \\
+> Имена переменных из первой строки>Имена наблюдений из первого столбца > OK
+
+Результат смотри на рисунке~\ref{fig:1_1}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=12cm]
+  {inc/cars_my/1.1.PNG}
+
+  \caption{Открыли cars\_my.xls в Statistica 10}
+
+  \label{fig:1_1}
+\end{figure}
+
+\begin{center}
+  \textbf{Масштаб измерений}
+\end{center}
+
+Вид > Заголовки переменных > Отображать тип
+
+1 PRICE Вещественный > Формат отображения > Число > Дес. разряды > 3 > OK
+
+2 age Вещественный > Формат отображения > Число > Дес. разряды > 6 > OK
+
+3 experience Вещественный > Тип > Целый > OK > Да
+
+4 age\_car Вещественный > Тип > Целый > OK > Да
+
+Результат смотри на рисунке~\ref{fig:1_2}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=10cm]
+  {inc/cars_my/1.2.PNG}
+
+  \caption{Данные}
+
+  \label{fig:1_2}
+\end{figure}
+
+\newpage
+
+Данные > Стандартизировать > Переменные > Выбрать все > OK > OK
+
+Результат смотри на рисунке~\ref{fig:1_3}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=10cm]
+  {inc/cars_my/1.3.PNG}
+
+  \caption{Данные}
+
+  \label{fig:1_3}
+\end{figure}
+
+Кружок > Сохранить как... > cars\_my\_standartiz.sta > Сохранить
+
+\newpage
+
+\begin{center}
+  \textbf{Шаг 1. Иерархическая классификация}
+\end{center}
+
+Анализ > Многомерный анализ > Кластерный анализ > Иерархическая классификация > OK \\
+> Дополнительно > Переменные > Выбрать все > OK \\
+> Объекты > Наблюдения (строки) \\
+> Правило объединения > Метод полной связи \\
+> Мера близости > Евклидово расстояние \\
+> OK > Дополнительно > Вертикальная дендрограмма
+
+Результаты смотри на рисунках~\ref{fig:1_4}, \ref{fig:1_5}, \ref{fig:1_6}.
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/1.4.PNG}
+
+    \caption{Окно <<Методы кластеризации>>}
+    \label{fig:1_4}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/1.5.PNG}
+
+    \caption{Окно <<Кластерный анализ>>}
+    \label{fig:1_5}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/1.6.PNG}
+
+    \caption{Окно <<Результаты иерархической классификации>>}
+    \label{fig:1_6}
+  \end{minipage}
+\end{figure}
+
+Результат смотри на рисунке~\ref{fig:1_7}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=11cm]
+  {inc/cars_my/1.7.PNG}
+
+  \caption{Дендрограмма для 22 набл.}
+  \label{fig:1_7}
+\end{figure}
+
+\newpage
+
+\begin{center}
+  \textbf{Шаг 2. Кластеризация методом К средних}
+\end{center}
+
+Результата иерархической классификации: cars\_my\_standartiz > Отмена > Отмена \\
+> Кластеризация методом К средних > OK \\
+> Дополнительно \\
+> Переменные > Выбрать все > OK \\
+> Объекты > Наблюдения (строки) \\
+> Число кластеров > 4 \\
+> OK > Дополнительно > Дисперсионный анализ
+
+Результаты смотри на рисунках~\ref{fig:2_1}, \ref{fig:2_2}, \ref{fig:2_3}.
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/2.1.PNG}
+
+    \caption{Окно <<Методы кластеризации>>}
+    \label{fig:2_1}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/2.2.PNG}
+
+    \caption{Окно <<Кластерный анализ>>}
+    \label{fig:2_2}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=6cm]
+  {inc/cars_my/2.3.PNG}
+
+  \caption{Дисперсионный анализ}
+  \label{fig:2_3}
+\end{figure}
+
+Результаты смотри на рисунке~\ref{fig:2_4}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=3cm]
+  {inc/cars_my/2.4.PNG}
+
+  \caption{Дисперсионный анализ}
+  \label{fig:2_4}
+\end{figure}
+
+\newpage
+
+Результаты метода К средних: cars\_my\_standartiz > Дополнительно > Элементы кластеров и расстояния
+
+Данные первого кластера смотри на рисунке~\ref{fig:2_5}.
+
+Данные второго кластера смотри на рисунке~\ref{fig:2_6}.
+
+Данные третьего кластера смотри на рисунке~\ref{fig:2_7}.
+
+Данные четвертого кластера смотри на рисунке~\ref{fig:2_8}.
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/2.5.PNG}
+
+    \caption{Первый кластер}
+    \label{fig:2_5}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/2.6.PNG}
+
+    \caption{Второй кластер}
+    \label{fig:2_6}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/2.7.PNG}
+
+    \caption{Третий кластер}
+    \label{fig:2_7}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/2.8.PNG}
+
+    \caption{Четвертый кластер}
+    \label{fig:2_8}
+  \end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{center}
+  \textbf{Шаг 3. Кластеризация методом К средних}
+\end{center}
+
+Результаты метода К средних: cars\_my\_standartiz > Дополнительно > Сохранить классификацию и расстояние > Выбрать все > OK
+
+Результаты смотри на рисунках~\ref{fig:3_1}, \ref{fig:3_2}, \ref{fig:3_3}, \ref{fig:3_4}.
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.1.PNG}
+
+    \caption{Окно <<Основные статистики и таблицы>>}
+    \label{fig:3_1}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.2.PNG}
+
+    \caption{Окно <<Внутригрупповые статистики и корреляции>>}
+    \label{fig:3_2}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.3.PNG}
+
+    \caption{Окно <<Выберите зависимые и группирующие переменные>>}
+    \label{fig:3_3}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.4.PNG}
+
+    \caption{Окно <<Внутригрупповые статистики и корреляции>>}
+    \label{fig:3_4}
+  \end{minipage}
+\end{figure}
+
+\newpage
+
+Анализ > Основные статистики и таблицы\\
+> Группировка и однофакторный ДА > OK\\
+> Переменные > 1-PRICE > 6-КЛАСТЕР > OK > OK\\
+> Статистики > Минимум и максимум\\
+> Описательные > Итоговая таблица средних
+
+Анализ > Основные статистики и таблицы > Новый\\
+> Группировка и однофакторный ДА > OK\\
+> Переменные > 2-age > 6-КЛАСТЕР > OK > OK\\
+> Описательные > Статистики > Минимум и максимум\\
+> Итоговая таблица средних
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.5.PNG}
+
+    \caption{PRICE}
+    \label{fig:3_5}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.6.PNG}
+
+    \caption{age}
+    \label{fig:3_6}
+  \end{minipage}
+\end{figure}
+
+Анализ > Основные статистики и таблицы > Новый\\
+> Группировка и однофакторный ДА > OK\\
+> Переменные > 3-experience > 6-КЛАСТЕР > OK > OK\\
+> Описательные > Статистики > Минимум и максимум\\
+> Итоговая таблица средних
+
+Анализ > Основные статистики и таблицы > Новый\\
+> Группировка и однофакторный ДА > OK\\
+> Переменные > 4-age\_car > 6-КЛАСТЕР > OK > OK\\
+> Описательные > Статистики > Минимум и максимум\\
+> Итоговая таблица средних
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.7.PNG}
+
+    \caption{experience}
+    \label{fig:3_7}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.8.PNG}
+
+    \caption{age\_car}
+    \label{fig:3_8}
+  \end{minipage}
+\end{figure}
+
+Анализ > Основные статистики и таблицы > Новый\\
+> Группировка и однофакторный ДА > OK\\
+> Переменные > (1-PRICE, 2-age, 3-experience, 4-age\_car) > 6-КЛАСТЕР > OK > OK\\
+> Быстрый > Графики взаимодействий
+
+Результаты смотри на рисунках~\ref{fig:3_9}, \ref{fig:3_10}, \ref{fig:3_11}, \ref{fig:3_12}, \ref{fig:3_13}, \ref{fig:3_14}.
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.9.PNG}
+
+    \caption{Окно <<Основные статистики и таблицы>>}
+    \label{fig:3_9}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.10.PNG}
+
+    \caption{Окно <<Выберите зависимые и группирующие переменные>>}
+    \label{fig:3_10}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.11.PNG}
+
+    \caption{Окно <<Внутригрупповые статистики и корреляции>>}
+    \label{fig:3_11}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.12.PNG}
+
+    \caption{Окно <<Внутригрупповые статистики и корреляции>>}
+    \label{fig:3_12}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=0.99\textwidth]
+    {inc/cars_my/3.13.PNG}
+
+    \caption{Окно <<Переменные для графика взаимодействий>>}
+    \label{fig:3_13}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=8.2cm]
+  {inc/cars_my/3.14.PNG}
+
+  \caption{График средних и дов. интервалов (95.00\%)}
+  \label{fig:3_14}
+\end{figure}
+
+% Результат действий смотри на рисунке~\ref{fig:1}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Series_G/1.PNG}
+
+%   \caption{Общие сведения}
+
+%   \label{fig:1}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Определение анализа}
+% \end{center}
+
+% Анализ > Углубленные методы > Временные ряды и прогнозирование\\
+% > Переменные > ОК\\
+% > Методы > АРПСС и автокорреляционные функции > Методы
+
+% Результат действий смотри на рисунке~\ref{fig:2}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Series_G/2.PNG}
+
+%   \caption{Определение анализа}
+
+%   \label{fig:2}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Фаза идентификации}
+% \end{center}
+
+% Анализ > Углубленные методы > Временные ряды и прогнозирование > Новый\\
+% > Переменные > ОК\\
+% > Методы > АРПСС и автокорреляционные функции > Методы \\
+% > Дополнительно > Другие преобразования и графики\\
+% > Графики\\
+% > Задать масштаб по оси Х (мин, знач, шаг) > 1 > 12\\
+% > Пометить точки по оси Х > Именами наблюдений\\
+% > График (рядом с кнопкой Просмотр выдел. Переменной)
+
+% Результат действий смотри на рисунке~\ref{fig:3}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Series_G/3.PNG}
+
+%   \caption{Фаза идентификации}
+
+%   \label{fig:3}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Мультипликативная сезонность}
+% \end{center}
+
+% % Из графика ряда также видно, что амплитуда сезонных изменений со временем увеличивается
+% % (т.е. есть свидетельства мультипликативной сезонности), что может смещать значения автокорреляций.
+% % Для стабилизации этой изменчивости будет выполнено преобразование данных в натуральный логарифм.
+
+% \begin{center}
+%   \textbf{Логарифмическое преобразование}
+% \end{center}
+
+% Преобразование переменных Series\_G > x=f(x)\\
+% > Преобразования > Натуральный логарифм ( x=ln(x) )\\
+% > OK (Преобразовать выделенную переменную)
+
+% Результат действий смотри на рисунке~\ref{fig:4}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Series_G/4.PNG}
+
+%   \caption{Логарифмическое преобразование}
+
+%   \label{fig:4}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Автокорреляции}
+% \end{center}
+
+% Преобразование переменных Series\_G > Автокорреляция\\
+% > Число лагов > 25\\
+% > Автокорреляция
+
+% Результат действий смотри на рисунке~\ref{fig:5}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Series_G/5.PNG}
+
+%   \caption{Логарифмическое преобразование}
+
+%   \label{fig:5}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Разность}
+% \end{center}
+
+% Преобразование переменных Series\_G\\
+% > Разность, сумма\\
+% > Преобразования  > Разность ( x = x - x(лаг) )\\
+% > ОК (Преобразовать выделенную переменную)
+
+% Результат действий смотри на рисунке~\ref{fig:6}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/6.PNG}
+
+%   \caption{Разность}
+
+%   \label{fig:6}
+% \end{figure}
+
+% Преобразование переменных Series\_G\\
+% > Автокорреляции\\
+% > Автокорреляции и кросскорреляции > Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:7}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/7.PNG}
+
+%   \caption{Разность}
+
+%   \label{fig:7}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Сезонность}
+% \end{center}
+
+% \begin{center}
+%   \textbf{Взятие сезонной разности}
+% \end{center}
+
+% Преобразование переменных Series\_G\\
+% > Разность, сумма\\
+% > Преобразования  > Разность ( x = x - x(лаг) ) > Лаг=12\\
+% > ОК (Преобразовать выделенную переменную)
+
+% Результат действий смотри на рисунке~\ref{fig:8}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Series_G/8.PNG}
+
+%   \caption{Взятие сезонной разности}
+
+%   \label{fig:8}
+% \end{figure}
+
+% Преобразование переменных Series\_G\\
+% > Графики\\
+% > Графики после каждого преобразования (снять галочку)\\
+% > Автокорреляции\\
+% > Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:9}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Series_G/9.PNG}
+
+%   \caption{Взятие сезонной разности}
+
+%   \label{fig:9}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% Преобразование переменных Series\_G\\
+% > Автокорреляции\\
+% > Частые Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:10}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Series_G/10.PNG}
+
+%   \caption{Взятие сезонной разности}
+
+%   \label{fig:10}
+% \end{figure}
+
+% % \begin{center}
+% %   \textbf{Параметры, подлежащие оценке}
+% % \end{center}
+
+% % Коррелограмма выглядит хорошо, и теперь ряд готов для ARIMA.
+% % Основываясь на изучении природы ряда (т.е. на этапе идентификации ARIMA),
+% % можно прийти к выводу, что сезонная АРПСС (с лагом 12)
+% % и несезонная модель (с лагом 1) достаточно хорошо подходят к преобразованному ряду.
+% % Будут оцениваться два параметра скользящего среднего модели АРПСС:
+% % один сезонный (Qs) и один несезонный (q).
+% % Параметры авторегрессии отсутствуют в модели.
+
+% \begin{center}
+%   \textbf{Диалог спецификаций ARIMA}
+% \end{center}
+
+% Преобразование переменных Series\_G\\
+% > Отмена\\
+% > L SERIES\_G Montly passenger totals (in 1000's)\\
+% > Методы\\
+% > Преобразовать переменную (ряд) перед анализом\\
+% > Натур. логарифм (установить флажок)\\
+% > Разность (установить флажок)\\
+% > 1. Лаг=1 > Порядок разности=1\\
+% > 2. Лаг=12 > Порядок разности=1\\
+% > q - скольз. средн.=1 > Q - Сезонных=1
+
+% Результат действий смотри на рисунке~\ref{fig:11}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Series_G/11.PNG}
+
+%   \caption{Диалог спецификаций ARIMA}
+
+%   \label{fig:11}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \begin{center}
+%   \textbf{Оценивание параметров}
+% \end{center}
+
+% > ОК (Начать оценивание параметров)
+
+% Результат действий смотри на рисунке~\ref{fig:12}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=9cm]
+%   {inc/Series_G/12.PNG}
+
+%   \caption{Оценивание параметров}
+
+%   \label{fig:12}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Вывод ARIMA}
+% \end{center}
+
+% > ОК
+
+% Результат действий смотри на рисунке~\ref{fig:13}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/13.PNG}
+
+%   \caption{Вывод ARIMA}
+
+%   \label{fig:13}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Параметры прогноза}
+% \end{center}
+
+% Результаты АРПСС: Series\_G
+% > Дополнительно > Прогноз
+
+% Результат действий смотри на рисунке~\ref{fig:14}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/14.PNG}
+
+%   \caption{Вывод ARIMA}
+
+%   \label{fig:14}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{График прогнозов}
+% \end{center}
+
+% Результаты АРПСС: Series\_G
+% > Дополнительно > График ряда и прогнозов
+
+% Результат действий смотри на рисунке~\ref{fig:15}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/15.PNG}
+
+%   \caption{График прогнозов}
+
+%   \label{fig:15}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% Результаты АРПСС: Series\_G\\
+% > Дополнительно
+% > Число набл.=12
+% > Начать с=133\\
+% > График ряда и прогнозов
+
+% Результат действий смотри на рисунке~\ref{fig:16}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/16.PNG}
+
+%   \caption{График прогнозов}
+
+%   \label{fig:16}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Графики нормальной вероятности}
+% \end{center}
+
+% Результаты АРПСС: Series\_G\\
+% > Распределение остатков
+% > Нормальный график
+
+% Результат действий смотри на рисунке~\ref{fig:17}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/17.PNG}
+
+%   \caption{Графики нормальной вероятности}
+
+%   \label{fig:17}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% Результаты АРПСС: Series\_G\\
+% > Распределение остатков
+% > Нормальный график без тренда
+
+% Результат действий смотри на рисунке~\ref{fig:18}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=9cm]
+%   {inc/Series_G/18.PNG}
+
+%   \caption{Нормальный график без тренда}
+
+%   \label{fig:18}
+% \end{figure}
+
+% Результаты АРПСС: Series\_G\\
+% > Распределение остатков
+% > Гистограмма
+
+% Результат действий смотри на рисунке~\ref{fig:19}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=9cm]
+%   {inc/Series_G/19.PNG}
+
+%   \caption{Гистограмма}
+
+%   \label{fig:19}
+% \end{figure}
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Автокорреляция остатков}
+% \end{center}
+
+% Результаты АРПСС: Series\_G\\
+% > Автокорреляции
+% > Автокорреляции остатков
+% > Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:20}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/20.PNG}
+
+%   \caption{Автокорреляция остатков}
+
+%   \label{fig:20}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Дальнейшие анализы}
+% \end{center}
+
+% Результаты АРПСС: Series\_G > Отмена\\
+% > Дополнительно > Метод оценивания > Точный (Меларда)\\
+
+% Результат действий смотри на рисунке~\ref{fig:21}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/21.PNG}
+
+%   \caption{Дальнейшие анализы}
+
+%   \label{fig:21}
+% \end{figure}
+
+% \newpage
+
+% > Прогноз > График двух списков перем. в разных масшт.\\
+% > SERIES\_G: +прогнозы, Модель: (0,1.1)(0,1,1);\\
+% > SERIES\_G: АРПСС (0,1,1)(0,1,1) остатки;\\
+
+% Результат действий смотри на рисунке~\ref{fig:22}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Series_G/22.PNG}
+
+%   \caption{Дальнейшие анализы}
+
+%   \label{fig:22}
+% \end{figure}
+
+% > OK
+
+% Результат действий смотри на рисунке~\ref{fig:23}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=10cm]
+%   {inc/Series_G/23.PNG}
+
+%   \caption{Дальнейшие анализы}
+
+%   \label{fig:23}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% \phantomsection
+% \addcontentsline{toc}{section}{Вариант 2}
+
+% \begin{center}
+%   \textbf{Вариант 2}
+% \end{center}
+
+% % \phantomsection
+% % \addcontentsline{toc}{section}{Вариант 2}
+
+% \begin{center}
+%   \textbf{(Canada Gas Production)}
+% \end{center}
+
+% \begin{center}
+%   \textbf{Общие сведения}
+% \end{center}
+
+% Главная > Открыть > "Canada Gas Production.xlsx"\\
+% > Импортировать выбранный лист в Таблицу данных
+% > Sheet1\\
+% > Имена переменных из первой строки\\
+% > Имена наблюдений из первого столбца\\
+% > Импорт формата ячеек\\
+% > ОК
+
+% Результат действий смотри на рисунке~\ref{fig:2_1}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=16cm]
+%   {inc/Canada_Gas_Production/1.PNG}
+
+%   \caption{Общие сведения}
+
+%   \label{fig:2_1}
+% \end{figure}
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Определение анализа}
+% \end{center}
+
+% Анализ > Углубленные методы > Временные ряды и прогнозирование\\
+% > Переменные > ОК\\
+% > Методы > АРПСС и автокорреляционные функции > Методы
+
+% Результат действий смотри на рисунке~\ref{fig:2_2}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Canada_Gas_Production/2.PNG}
+
+%   \caption{Определение анализа}
+
+%   \label{fig:2_2}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Фаза идентификации}
+% \end{center}
+
+% Анализ > Углубленные методы > Временные ряды и прогнозирование > Новый\\
+% > Переменные > ОК\\
+% > Методы > АРПСС и автокорреляционные функции > Методы \\
+% > Дополнительно > Другие преобразования и графики\\
+% > Графики\\
+% > Задать масштаб по оси Х (мин, знач, шаг) > 1 > 12\\
+% > Пометить точки по оси Х > Именами наблюдений\\
+% > График (рядом с кнопкой Просмотр выдел. Переменной)
+
+% Результат действий смотри на рисунке~\ref{fig:2_3}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Canada_Gas_Production/3.PNG}
+
+%   \caption{Фаза идентификации}
+
+%   \label{fig:2_3}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Мультипликативная сезонность}
+% \end{center}
+
+% % Из графика ряда также видно, что амплитуда сезонных изменений со временем увеличивается
+% % (т.е. есть свидетельства мультипликативной сезонности), что может смещать значения автокорреляций.
+% % Для стабилизации этой изменчивости будет выполнено преобразование данных в натуральный логарифм.
+
+% \begin{center}
+%   \textbf{Логарифмическое преобразование}
+% \end{center}
+
+% Преобразование переменных Series\_G > x=f(x)\\
+% > Преобразования > Натуральный логарифм ( x=ln(x) )\\
+% > OK (Преобразовать выделенную переменную)
+
+% Результат действий смотри на рисунке~\ref{fig:2_4}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Canada_Gas_Production/4.PNG}
+
+%   \caption{Логарифмическое преобразование}
+
+%   \label{fig:2_4}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Автокорреляции}
+% \end{center}
+
+% Преобразование переменных Series\_G > Автокорреляция\\
+% > Число лагов > 25\\
+% > Автокорреляция
+
+% Результат действий смотри на рисунке~\ref{fig:2_5}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Canada_Gas_Production/5.PNG}
+
+%   \caption{Логарифмическое преобразование}
+
+%   \label{fig:2_5}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Разность}
+% \end{center}
+
+% Преобразование переменных: Canada\_Gas\_Production\\
+% > Разность, сумма\\
+% > Преобразования  > Разность ( x = x - x(лаг) )\\
+% > ОК (Преобразовать выделенную переменную)
+
+% Результат действий смотри на рисунке~\ref{fig:2_6}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/6.PNG}
+
+%   \caption{Разность}
+
+%   \label{fig:2_6}
+% \end{figure}
+
+% Преобразование переменных: Canada\_Gas\_Production\\
+% > Автокорреляции\\
+% > Автокорреляции и кросскорреляции > Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:2_7}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/7.PNG}
+
+%   \caption{Разность}
+
+%   \label{fig:2_7}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Сезонность}
+% \end{center}
+
+% \begin{center}
+%   \textbf{Взятие сезонной разности}
+% \end{center}
+
+% Преобразование переменных: Canada\_Gas\_Production\\
+% > Разность, сумма\\
+% > Преобразования  > Разность ( x = x - x(лаг) ) > Лаг=12\\
+% > ОК (Преобразовать выделенную переменную)
+
+% Результат действий смотри на рисунке~\ref{fig:2_8}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Canada_Gas_Production/8.PNG}
+
+%   \caption{Взятие сезонной разности}
+
+%   \label{fig:2_8}
+% \end{figure}
+
+% Преобразование переменных: Canada\_Gas\_Production\\
+% > Графики\\
+% > Графики после каждого преобразования (снять галочку)\\
+% > Автокорреляции\\
+% > Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:2_9}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=7cm]
+%   {inc/Canada_Gas_Production/9.PNG}
+
+%   \caption{Взятие сезонной разности}
+
+%   \label{fig:2_9}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% Преобразование переменных: Canada\_Gas\_Production\\
+% > Автокорреляции\\
+% > Частые Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:2_10}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Canada_Gas_Production/10.PNG}
+
+%   \caption{Взятие сезонной разности}
+
+%   \label{fig:2_10}
+% \end{figure}
+
+% % \begin{center}
+% %   \textbf{Параметры, подлежащие оценке}
+% % \end{center}
+
+% % Коррелограмма выглядит хорошо, и теперь ряд готов для ARIMA.
+% % Основываясь на изучении природы ряда (т.е. на этапе идентификации ARIMA),
+% % можно прийти к выводу, что сезонная АРПСС (с лагом 12)
+% % и несезонная модель (с лагом 1) достаточно хорошо подходят к преобразованному ряду.
+% % Будут оцениваться два параметра скользящего среднего модели АРПСС:
+% % один сезонный (Qs) и один несезонный (q).
+% % Параметры авторегрессии отсутствуют в модели.
+
+% \begin{center}
+%   \textbf{Диалог спецификаций ARIMA}
+% \end{center}
+
+% Преобразование переменных: Canada\_Gas\_Production\\
+% > Отмена\\
+% > L SERIES\_G Montly passenger totals (in 1000's)\\
+% > Методы\\
+% > Преобразовать переменную (ряд) перед анализом\\
+% > Натур. логарифм (установить флажок)\\
+% > Разность (установить флажок)\\
+% > 1. Лаг=1 > Порядок разности=1\\
+% > 2. Лаг=12 > Порядок разности=1\\
+% > q - скольз. средн.=1 > Q - Сезонных=1
+
+% Результат действий смотри на рисунке~\ref{fig:2_11}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=6cm]
+%   {inc/Canada_Gas_Production/11.PNG}
+
+%   \caption{Диалог спецификаций ARIMA}
+
+%   \label{fig:2_11}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \begin{center}
+%   \textbf{Оценивание параметров}
+% \end{center}
+
+% > ОК (Начать оценивание параметров)
+
+% Результат действий смотри на рисунке~\ref{fig:2_12}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=9cm]
+%   {inc/Canada_Gas_Production/12.PNG}
+
+%   \caption{Оценивание параметров}
+
+%   \label{fig:2_12}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Вывод ARIMA}
+% \end{center}
+
+% > ОК
+
+% Результат действий смотри на рисунке~\ref{fig:2_13}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/13.PNG}
+
+%   \caption{Вывод ARIMA}
+
+%   \label{fig:2_13}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Параметры прогноза}
+% \end{center}
+
+% Результаты АРПСС: Canada Gas Production
+% > Дополнительно > Прогноз
+
+% Результат действий смотри на рисунке~\ref{fig:2_14}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/14.PNG}
+
+%   \caption{Вывод ARIMA}
+
+%   \label{fig:2_14}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{График прогнозов}
+% \end{center}
+
+% Результаты АРПСС: Canada Gas Production\\
+% > Дополнительно > График ряда и прогнозов
+
+% Результат действий смотри на рисунке~\ref{fig:2_15}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/15.PNG}
+
+%   \caption{График прогнозов}
+
+%   \label{fig:2_15}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% Результаты АРПСС: Canada Gas Production\\
+% > Дополнительно
+% > Число набл.=12
+% > Начать с=242 (253-12+1)\\
+% > График ряда и прогнозов
+
+% Результат действий смотри на рисунке~\ref{fig:2_16}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/16.PNG}
+
+%   \caption{График прогнозов}
+
+%   \label{fig:2_16}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Графики нормальной вероятности}
+% \end{center}
+
+% Результаты АРПСС: Canada Gas Production\\
+% > Распределение остатков
+% > Нормальный график
+
+% Результат действий смотри на рисунке~\ref{fig:2_17}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/17.PNG}
+
+%   \caption{Графики нормальной вероятности}
+
+%   \label{fig:2_17}
+% \end{figure}
+
+% % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+% \newpage
+
+% Результаты АРПСС: Canada Gas Production\\
+% > Распределение остатков
+% > Нормальный график без тренда
+
+% Результат действий смотри на рисунке~\ref{fig:2_18}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=9cm]
+%   {inc/Canada_Gas_Production/18.PNG}
+
+%   \caption{Нормальный график без тренда}
+
+%   \label{fig:2_18}
+% \end{figure}
+
+% Результаты АРПСС: Canada Gas Production\\
+% > Распределение остатков
+% > Гистограмма
+
+% Результат действий смотри на рисунке~\ref{fig:2_19}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=9cm]
+%   {inc/Canada_Gas_Production/19.PNG}
+
+%   \caption{Гистограмма}
+
+%   \label{fig:2_19}
+% \end{figure}
+
+% \newpage
+
+% \begin{center}
+%   \textbf{Автокорреляция остатков}
+% \end{center}
+
+% Результаты АРПСС: Canada Gas Production\\
+% > Автокорреляции
+% > Автокорреляции остатков
+% > Автокорреляции
+
+% Результат действий смотри на рисунке~\ref{fig:2_20}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/20.PNG}
+
+%   \caption{Автокорреляция остатков}
+
+%   \label{fig:2_20}
+% \end{figure}
+
+% \begin{center}
+%   \textbf{Дальнейшие анализы}
+% \end{center}
+
+% Результаты АРПСС: Canada Gas Production > Отмена\\
+% > Дополнительно > Метод оценивания > Точный (Меларда)\\
+
+% Результат действий смотри на рисунке~\ref{fig:2_21}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/21.PNG}
+
+%   \caption{Дальнейшие анализы}
+
+%   \label{fig:2_21}
+% \end{figure}
+
+% \newpage
+
+% > Прогноз > График двух списков перем. в разных масшт.\\
+% > SERIES\_G: +прогнозы, Модель: (0,1.1)(0,1,1);\\
+% > SERIES\_G: АРПСС (0,1,1)(0,1,1) остатки;\\
+
+% Результат действий смотри на рисунке~\ref{fig:2_22}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=8cm]
+%   {inc/Canada_Gas_Production/22.PNG}
+
+%   \caption{Дальнейшие анализы}
+
+%   \label{fig:2_22}
+% \end{figure}
+
+% > OK
+
+% Результат действий смотри на рисунке~\ref{fig:2_23}.
+
+% \begin{figure}[!h]
+%   \centering
+
+%   \includegraphics[height=10cm]
+%   {inc/Canada_Gas_Production/23.PNG}
+
+%   \caption{Дальнейшие анализы}
+
+%   \label{fig:2_23}
+% \end{figure}
