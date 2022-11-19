@@ -1,0 +1,556 @@
+\begin{center}
+  \textbf{Отчёт лабораторной работы №\envReportLabNumber}
+\end{center}
+
+\textbf{Тема}:
+<<\envReportTitle>>
+
+\textbf{Цель}:
+изучить основы методов Text Mining (текстовой добычи), приобрести
+навыки работы с методами Text Mining (текстовой добычи) в системе
+STATISTICA StatSoft, осуществить обработку методами Text Mining
+индивидуального набора данных и интерпретацию результатов.
+% = = = = = = = = = = = = = = = =
+
+\begin{center}
+  \textbf{Ход работы}
+\end{center}
+
+Удаляю папку <<Statistica 10 RUS>>.
+
+Запускаю Ststatistica\_10\_ru\_portable.exe.
+
+\begin{center}
+  \textbf{Определение анализа}
+\end{center}
+
+Главная > Открыть > Reuters3000.sta  > Открыть
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=16cm]
+  {inc/1.PNG}
+
+  \caption{1}
+
+  \label{fig:1}
+\end{figure}
+
+\newpage
+
+Добыча Данных > Добыча текста > \\
+> Quick \\
+> Retrieve text from: > Files > Paths in spreadsheet > Document paths \\
+> 1 – File Name > OK \\
+> Advanced \\
+> Stemming language > English \\
+> \% files where word occurs: > Min > 3 \\
+> Words > Stop words (discarded, excluded from indexing) > Select > EnglishStopList,txt > Открыть \\
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/2.PNG}
+
+    \caption{2}
+
+    \label{fig:2}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/3.PNG}
+
+    \caption{3}
+
+    \label{fig:3}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/4.PNG}
+
+    \caption{4}
+
+    \label{fig:4}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/5.PNG}
+
+    \caption{5}
+
+    \label{fig:5}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/6.PNG}
+
+    \caption{6}
+
+    \label{fig:6}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/7.PNG}
+
+    \caption{7}
+
+    \label{fig:7}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/8.PNG}
+
+    \caption{8}
+
+    \label{fig:8}
+  \end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{center}
+  \textbf{Выполнение анализа данных}
+\end{center}
+
+> Index > Да
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.29\textwidth}
+    \centering
+
+    \includegraphics[height=1.5cm]
+    {inc/9.PNG}
+
+    \caption{9}
+
+    \label{fig:9}
+  \end{minipage}
+  \begin{minipage}{0.39\textwidth}
+    \centering
+
+    \includegraphics[height=7cm]
+    {inc/10.PNG}
+
+    \caption{10}
+
+    \label{fig:10}
+  \end{minipage}
+  \begin{minipage}{0.29\textwidth}
+    \centering
+
+    \includegraphics[height=2cm]
+    {inc/11.PNG}
+
+    \caption{11}
+
+    \label{fig:11}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=17cm]
+  {inc/12.PNG}
+
+  \caption{12}
+
+  \label{fig:12}
+\end{figure}
+
+\begin{center}
+  \textbf{Сохранения извлеченных частот слов во входной файл}
+\end{center}
+
+> Save results > Ammount > 342 > Append empty variables > OK \\
+> Save results > Write back current results (to selected variables) \\
+> Statistics > account > Shift > york \\
+> Variables > 4 - NewVar1 > Shift > 345 — NewVar342 \\
+> Присвоить > OK \\
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/13.PNG}
+
+    \caption{13}
+
+    \label{fig:13}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/14.PNG}
+
+    \caption{14}
+
+    \label{fig:14}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=17cm]
+  {inc/15.PNG}
+
+  \caption{15}
+
+  \label{fig:15}
+\end{figure}
+
+\newpage
+
+\begin{center}
+  \textbf{Первоначальный выбор функций}
+\end{center}
+
+> Добыча Данных > Отсеивание признаков > Variables \\
+> Dependent, categorical > 2 — Topic: Earnings \\
+> Predictors; contimuous > 4 — accord > Shift > 345-york \\
+> OK > OK \\
+> Quick > Display > 50 > Histogram of importance for best k predictors \\
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.22\textwidth}
+    \centering
+
+    \includegraphics[height=3cm]
+    {inc/16.PNG}
+
+    \caption{16}
+
+    \label{fig:16}
+  \end{minipage}
+  \begin{minipage}{0.52\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/17.PNG}
+
+    \caption{17}
+
+    \label{fig:17}
+  \end{minipage}
+  \begin{minipage}{0.22\textwidth}
+    \centering
+
+    \includegraphics[height=3cm]
+    {inc/18.PNG}
+
+    \caption{18}
+
+    \label{fig:18}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.29\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/19.PNG}
+
+    \caption{19}
+
+    \label{fig:19}
+  \end{minipage}
+  \begin{minipage}{0.69\textwidth}
+    \centering
+
+    \includegraphics[height=6cm]
+    {inc/20.PNG}
+
+    \caption{20}
+
+    \label{fig:20}
+  \end{minipage}
+\end{figure}
+
+FSL Results L Reuters3000 > Quick > Display > 20 > Histogram of importance for best k predictors
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.29\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/21.PNG}
+
+    \caption{21}
+
+    \label{fig:21}
+  \end{minipage}
+  \begin{minipage}{0.69\textwidth}
+    \centering
+
+    \includegraphics[height=6cm]
+    {inc/22.PNG}
+
+    \caption{22}
+
+    \label{fig:22}
+  \end{minipage}
+\end{figure}
+
+redictors
+FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (features) \\
+> copy
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=6cm]
+  {inc/23.PNG}
+
+  \caption{23}
+
+  \label{fig:23}
+\end{figure}
+
+332 86 296 207 280 274 182 102 248 197 242 212 255 263 256 297 35 103 338 221
+
+\newpage
+
+Вид > Класическое Меню \\
+> Добыча Данных > Общие деревья классификаии и регрессии \\
+> Quick \\
+> Type of analysis > Standart C\&RT \\
+> Specification method > Quick specs dialog \\
+> OK \\
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=4cm]
+  {inc/24.PNG}
+
+  \caption{24}
+
+  \label{fig:24}
+\end{figure}
+
+> Quick > Categorical response (categorical dependent variable) (checked) \\
+> Variables \\
+> Depend > 2 — Topic: \\
+> Continuous pred\\
+> 332 86 296 207 280 274 182 102 248 197 242 212 255 263 256 297 35 103 338 221 > OK\\
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.29\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/25.PNG}
+
+    \caption{25}
+
+    \label{fig:25}
+  \end{minipage}
+  \begin{minipage}{0.69\textwidth}
+    \centering
+
+    \includegraphics[height=4.5cm]
+    {inc/26.PNG}
+
+    \caption{26}
+
+    \label{fig:26}
+  \end{minipage}
+\end{figure}
+
+> Validation > V-fold cross-validation \\
+> Test sample \\
+> Status > on \\
+> Sample Identifier Variable > 3 — Training > OK \\
+> OK > OK \\
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/27.PNG}
+
+    \caption{27}
+
+    \label{fig:27}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/28.PNG}
+
+    \caption{28}
+
+    \label{fig:28}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/29.PNG}
+
+    \caption{29}
+
+    \label{fig:29}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/30.PNG}
+
+    \caption{30}
+
+    \label{fig:30}
+  \end{minipage}
+\end{figure}
+
+\newpage
+
+> Summary > Tree browser
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.29\textwidth}
+    \centering
+
+    \includegraphics[height=8cm]
+    {inc/31.PNG}
+
+    \caption{31}
+
+    \label{fig:31}
+  \end{minipage}
+  \begin{minipage}{0.69\textwidth}
+    \centering
+
+    \includegraphics[height=8cm]
+    {inc/32.PNG}
+
+    \caption{32}
+
+    \label{fig:32}
+  \end{minipage}
+\end{figure}
+
+> GC\&RT Results : Reuters3000 \\
+> Classification > Sample > Test set \\
+> Predicted vs. Observed by classes \\
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.29\textwidth}
+    \centering
+
+    \includegraphics[height=8cm]
+    {inc/33.PNG}
+
+    \caption{33}
+
+    \label{fig:33}
+  \end{minipage}
+  \begin{minipage}{0.69\textwidth}
+    \centering
+
+    \includegraphics[height=6cm]
+    {inc/34.PNG}
+
+    \caption{34}
+
+    \label{fig:34}
+  \end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{center}
+  \textbf{Интерпретация результатов}
+\end{center}
+
+Из матрицы классификации можно сделать следующие выводы.
+
+\begin{itemize}
+  \item количество случаев, когда классификация с ответом No (Predicted No) правильная,
+  т.е. соответствует эталонам с ответом No (Observed No) - 1131;
+  \item количество случаев, когда классификация с ответом Yes (Predicted Yes) правильная,
+  т.е. соответствует эталонам с ответом Yes (Observed Yes) - 259;
+  \item общее количество случаев успешной классификации (прогноза) - 1131+259=1390;
+  \item количество случаев, когда классификация с ответом No (Predicted No)
+  неправильная, т.е. соответствует эталонам с ответом Yes (Observed Yes) - ошибка 1
+  рода - 61;
+  \item количество случаев, когда классификация с ответом Yes (Predicted Yes)
+  неправильная, т.е. соответствует эталонам с ответом No (Observed No) - ошибка 2
+  рода - 35;
+  \item общее количество случаев неуспешной классификации (прогноза) - 61+35=96;
+  \item общее количество случаев (элементов выборки, Count) - 1486.
+\end{itemize}
+
+
+Отсюда можно рассчитать точность прогноза:
+$$
+P = (1390 / 1486) * 100\% = 93,5\%
+$$
+
+Общая ошибка прогноза:
+
+$$
+P = (96 / 1486) * 100\% = 6,5\%
+$$
+
+Ошибка прогноза 1 рода:
+$$
+P = (61 / 1486) * 100\% = 4,1\%
+$$
+
+Ошибка прогноза 2 рода:
+$$
+P = (35 / 1486) * 100\% = 2,4\%
+$$
