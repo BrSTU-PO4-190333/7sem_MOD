@@ -16,7 +16,7 @@ STATISTICA StatSoft, осуществить обработку методами 
   \textbf{Ход работы}
 \end{center}
 
-Удаляю папку <<Statistica 10 RUS>>.
+Удаляю папку <<Statistica 10 RUS>> (тут временные файлы portable программы).
 
 Запускаю Ststatistica\_10\_ru\_portable.exe.
 
@@ -26,10 +26,12 @@ STATISTICA StatSoft, осуществить обработку методами 
 
 Главная > Открыть > Reuters3000.sta  > Открыть
 
+Результаты на рисунке~\ref{fig:1}.
+
 \begin{figure}[!h]
   \centering
 
-  \includegraphics[height=16cm]
+  \includegraphics[height=14cm]
   {inc/1.PNG}
 
   \caption{1}
@@ -39,14 +41,11 @@ STATISTICA StatSoft, осуществить обработку методами 
 
 \newpage
 
-Добыча Данных > Добыча текста > \\
-> Quick \\
+Добыча Данных > Добыча текста > Quick \\
 > Retrieve text from: > Files > Paths in spreadsheet > Document paths \\
 > 1 – File Name > OK \\
-> Advanced \\
-> Stemming language > English \\
-> \% files where word occurs: > Min > 3 \\
-> Words > Stop words (discarded, excluded from indexing) > Select > EnglishStopList,txt > Открыть \\
+
+Результаты на рисункax~\ref{fig:2}, \ref{fig:3}, \ref{fig:4}.
 
 \begin{figure}[!h]
   \centering
@@ -82,6 +81,12 @@ STATISTICA StatSoft, осуществить обработку методами 
     \label{fig:4}
   \end{minipage}
 \end{figure}
+
+> Advanced > Stemming language > English \\
+> \% files where word occurs: > Min > 3 \\
+> Words > Stop words (discarded, excluded from indexing) > Select > EnglishStopList,txt > Открыть \\
+
+Результаты на рисункax~\ref{fig:5}, \ref{fig:6}, \ref{fig:7}, \ref{fig:8}.
 
 \begin{figure}[!h]
   \centering
@@ -141,20 +146,32 @@ STATISTICA StatSoft, осуществить обработку методами 
 
 > Index > Да
 
+Результаты на рисунке~\ref{fig:9}.
+
 \begin{figure}[!h]
   \centering
 
-  \begin{minipage}{0.29\textwidth}
-    \centering
+  \includegraphics[height=2cm]
+  {inc/9.PNG}
 
-    \includegraphics[height=1.5cm]
-    {inc/9.PNG}
+  \caption{9}
 
-    \caption{9}
+  \label{fig:9}
+\end{figure}
 
-    \label{fig:9}
-  \end{minipage}
-  \begin{minipage}{0.39\textwidth}
+\begin{center}
+  \textbf{Сохранения извлеченных частот слов во входной файл}
+\end{center}
+
+> Save results > Ammount > 342 > Append empty variables > OK \\
+> Save results > Write back current results (to selected variables) \\
+
+Результаты на рисункax~\ref{fig:10}, \ref{fig:11}, \ref{fig:12}.
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
     \centering
 
     \includegraphics[height=7cm]
@@ -164,7 +181,7 @@ STATISTICA StatSoft, осуществить обработку методами 
 
     \label{fig:10}
   \end{minipage}
-  \begin{minipage}{0.29\textwidth}
+  \begin{minipage}{0.49\textwidth}
     \centering
 
     \includegraphics[height=2cm]
@@ -176,7 +193,7 @@ STATISTICA StatSoft, осуществить обработку методами 
   \end{minipage}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[p!h]
   \centering
 
   \includegraphics[width=17cm]
@@ -187,17 +204,13 @@ STATISTICA StatSoft, осуществить обработку методами 
   \label{fig:12}
 \end{figure}
 
-\begin{center}
-  \textbf{Сохранения извлеченных частот слов во входной файл}
-\end{center}
-
-> Save results > Ammount > 342 > Append empty variables > OK \\
-> Save results > Write back current results (to selected variables) \\
 > Statistics > account > Shift > york \\
 > Variables > 4 - NewVar1 > Shift > 345 — NewVar342 \\
 > Присвоить > OK \\
 
-\begin{figure}[!h]
+Результаты на рисункax~\ref{fig:13}, \ref{fig:14}, \ref{fig:15}.
+
+\begin{figure}[p!h]
   \centering
 
   \begin{minipage}{0.49\textwidth}
@@ -222,7 +235,7 @@ STATISTICA StatSoft, осуществить обработку методами 
   \end{minipage}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[p!h]
   \centering
 
   \includegraphics[width=17cm]
@@ -243,7 +256,8 @@ STATISTICA StatSoft, осуществить обработку методами 
 > Dependent, categorical > 2 — Topic: Earnings \\
 > Predictors; contimuous > 4 — accord > Shift > 345-york \\
 > OK > OK \\
-> Quick > Display > 50 > Histogram of importance for best k predictors \\
+
+Результаты на рисункax~\ref{fig:16}, \ref{fig:17}, \ref{fig:18}.
 
 \begin{figure}[!h]
   \centering
@@ -280,6 +294,10 @@ STATISTICA StatSoft, осуществить обработку методами 
   \end{minipage}
 \end{figure}
 
+> Quick > Display > 50 > Histogram of importance for best k predictors \\
+
+Результаты на рисункax~\ref{fig:19}, \ref{fig:20}.
+
 \begin{figure}[!h]
   \centering
 
@@ -305,7 +323,10 @@ STATISTICA StatSoft, осуществить обработку методами 
   \end{minipage}
 \end{figure}
 
-FSL Results L Reuters3000 > Quick > Display > 20 > Histogram of importance for best k predictors
+FSL Results L Reuters3000 > Quick > Display > 20 \\
+> Histogram of importance for best k predictors
+
+Результаты на рисункax~\ref{fig:21}, \ref{fig:22}.
 
 \begin{figure}[!h]
   \centering
@@ -332,9 +353,15 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Histogram of importance for b
   \end{minipage}
 \end{figure}
 
-redictors
-FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (features) \\
-> copy
+\newpage
+
+dFSL Results L Reuters3000 > Quick > Display > 20 \\
+> Report of best k predictors (features) \\
+
+Результаты на рисунке~\ref{fig:23}.
+
+Копируем номера переменных:
+332 86 296 207 280 274 182 102 248 197 242 212 255 263 256 297 35 103 338 221
 
 \begin{figure}[!h]
   \centering
@@ -347,16 +374,14 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
   \label{fig:23}
 \end{figure}
 
-332 86 296 207 280 274 182 102 248 197 242 212 255 263 256 297 35 103 338 221
-
-\newpage
-
 Вид > Класическое Меню \\
 > Добыча Данных > Общие деревья классификаии и регрессии \\
 > Quick \\
 > Type of analysis > Standart C\&RT \\
 > Specification method > Quick specs dialog \\
 > OK \\
+
+Результат на рисунке~\ref{fig:24}.
 
 \begin{figure}[!h]
   \centering
@@ -369,11 +394,15 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
   \label{fig:24}
 \end{figure}
 
+\newpage
+
 > Quick > Categorical response (categorical dependent variable) (checked) \\
 > Variables \\
 > Depend > 2 — Topic: \\
 > Continuous pred\\
 > 332 86 296 207 280 274 182 102 248 197 242 212 255 263 256 297 35 103 338 221 > OK\\
+
+Результаты на рисункax~\ref{fig:25}, \ref{fig:26}.
 
 \begin{figure}[!h]
   \centering
@@ -406,6 +435,8 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
 > Sample Identifier Variable > 3 — Training > OK \\
 > OK > OK \\
 
+Результаты на рисункax~\ref{fig:27}, \ref{fig:28}, \ref{fig:29}, \ref{fig:30}.
+
 \begin{figure}[!h]
   \centering
 
@@ -429,6 +460,11 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
 
     \label{fig:28}
   \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
   \begin{minipage}{0.49\textwidth}
     \centering
 
@@ -454,6 +490,8 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
 \newpage
 
 > Summary > Tree browser
+
+Результаты на рисункax~\ref{fig:31}, \ref{fig:32}.
 
 \begin{figure}[!h]
   \centering
@@ -484,13 +522,15 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
 > Classification > Sample > Test set \\
 > Predicted vs. Observed by classes \\
 
+Результаты на рисункax~\ref{fig:33}, \ref{fig:34}.
+
 \begin{figure}[!h]
   \centering
 
   \begin{minipage}{0.29\textwidth}
     \centering
 
-    \includegraphics[height=8cm]
+    \includegraphics[height=5cm]
     {inc/33.PNG}
 
     \caption{33}
@@ -500,7 +540,7 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
   \begin{minipage}{0.69\textwidth}
     \centering
 
-    \includegraphics[height=6cm]
+    \includegraphics[height=5cm]
     {inc/34.PNG}
 
     \caption{34}
@@ -519,38 +559,38 @@ FSL Results L Reuters3000 > Quick > Display > 20 > Report of best k predictors (
 
 \begin{itemize}
   \item количество случаев, когда классификация с ответом No (Predicted No) правильная,
-  т.е. соответствует эталонам с ответом No (Observed No) - 1131;
+  т.е. соответствует эталонам с ответом No (Observed No) - \underline{1134};
   \item количество случаев, когда классификация с ответом Yes (Predicted Yes) правильная,
-  т.е. соответствует эталонам с ответом Yes (Observed Yes) - 259;
-  \item общее количество случаев успешной классификации (прогноза) - 1131+259=1390;
+  т.е. соответствует эталонам с ответом Yes (Observed Yes) - \underline{253};
+  \item общее количество случаев успешной классификации (прогноза) - \underline{$1134+253=1387$};
   \item количество случаев, когда классификация с ответом No (Predicted No)
   неправильная, т.е. соответствует эталонам с ответом Yes (Observed Yes) - ошибка 1
-  рода - 61;
+  рода - \underline{67};
   \item количество случаев, когда классификация с ответом Yes (Predicted Yes)
   неправильная, т.е. соответствует эталонам с ответом No (Observed No) - ошибка 2
-  рода - 35;
-  \item общее количество случаев неуспешной классификации (прогноза) - 61+35=96;
-  \item общее количество случаев (элементов выборки, Count) - 1486.
+  рода - \underline{32};
+  \item общее количество случаев неуспешной классификации (прогноза) - \underline{$67+32=99$};
+  \item общее количество случаев (элементов выборки, Count) - \underline{1486}.
 \end{itemize}
 
 
 Отсюда можно рассчитать точность прогноза:
 $$
-P = (1390 / 1486) * 100\% = 93,5\%
+P = (1387 / 1486) * 100\% \approx 93,34\%
 $$
 
 Общая ошибка прогноза:
 
 $$
-P = (96 / 1486) * 100\% = 6,5\%
+P = (99 / 1486) * 100\% \approx 6,66\%
 $$
 
 Ошибка прогноза 1 рода:
 $$
-P = (61 / 1486) * 100\% = 4,1\%
+P = (67 / 1486) * 100\% \approx 4,51\%
 $$
 
 Ошибка прогноза 2 рода:
 $$
-P = (35 / 1486) * 100\% = 2,4\%
+P = (32 / 1486) * 100\% \approx 2,15\%
 $$
