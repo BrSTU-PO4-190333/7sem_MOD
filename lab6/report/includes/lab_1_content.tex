@@ -397,3 +397,385 @@ Support Vector Machine Results: IrisSNN > Custom predictions > User defined case
 \begin{center}
   \textbf{Вариант 5}
 \end{center}
+
+Удаляю папку <<Statistica 10 RUS>> (тут временные файлы portable программы).
+
+Запускаю Ststatistica\_10\_ru\_portable.exe.
+
+\begin{center}
+  \textbf{Файл данных}
+\end{center}
+
+Главная > Открыть > diabetes-77.xlsx > Открыть \\
+> Импортировать выбранный лист в Таблицу данных > Var5 > OK \\
+> Имена переменных из первой строки > OK \\
+> Импорт, как текстовые метки > Импорт, как текстовые метки
+
+Результат на рисунке~\ref{fig:v5_1}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=9cm]
+  {inc/v5_1.PNG}
+
+  \caption{1}
+
+  \label{fig:v5_1}
+\end{figure}
+
+\newpage
+
+\begin{center}
+  \textbf{Запуск анализа}
+\end{center}
+
+Добыча данных > Процедуры обучения > Support Vector Machine > OK
+
+Результаты на рисунках~\ref{fig:v5_2} и \ref{fig:v5_3}.
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/v5_2.PNG}
+
+    \caption{2}
+
+    \label{fig:v5_2}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=5cm]
+    {inc/v5_3.PNG}
+
+    \caption{3}
+
+    \label{fig:v5_3}
+  \end{minipage}
+\end{figure}
+
+\begin{center}
+  \textbf{Настройки анализа}
+\end{center}
+
+> Быстрый > Variables \\
+> Categorical dependents > 11-Outcome \\
+> Continuous predictors > 3-Pregnancies
+> Shift > 4-Glucose
+> Shift > 5-BloodPressure
+> Shift > 6-SkinThickness
+> Shift > 7-Insulin
+> Shift > 8-BMI
+> Shift > 9-DiabetesPedigreeFunction
+> Shift > 10-Age
+> OK
+
+Результат на рисунке~\ref{fig:v5_4}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=12cm]
+  {inc/v5_4.PNG}
+
+  \caption{4}
+
+  \label{fig:v5_4}
+\end{figure}
+
+> Sampling > Use sample variable > Sample \\
+> Sample Identifier Variable > 2-nnset > OK \\
+> Status > On \\
+> Code for analysis sample (2 раза клик) > 101:Train > OK > OK
+
+Результаты на рисунках~\ref{fig:v5_5}, \ref{fig:v5_6}, \ref{fig:v5_7},
+\ref{fig:v5_8}, \ref{fig:v5_9}, \ref{fig:v5_10}.
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[height=3.8cm]
+    {inc/v5_5.PNG}
+
+    \caption{5}
+
+    \label{fig:v5_5}
+  \end{minipage}
+  \begin{minipage}{0.42\textwidth}
+    \centering
+
+    \includegraphics[width=5cm]
+    {inc/v5_6.PNG}
+
+    \caption{6}
+
+    \label{fig:v5_6}
+  \end{minipage}
+  \begin{minipage}{0.22\textwidth}
+    \centering
+
+    \includegraphics[height=3.8cm]
+    {inc/v5_7.PNG}
+
+    \caption{7}
+
+    \label{fig:v5_7}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=6cm]
+    {inc/v5_8.PNG}
+
+    \caption{8}
+
+    \label{fig:v5_8}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[height=3.8cm]
+    {inc/v5_9.PNG}
+
+    \caption{9}
+
+    \label{fig:v5_9}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=6cm]
+    {inc/v5_10.PNG}
+
+    \caption{10}
+
+    \label{fig:v5_10}
+  \end{minipage}
+\end{figure}
+
+\newpage
+
+> Cross-validation > Apply v-fold cross-validation > OK
+
+Результаты на рисунках~\ref{fig:v5_11}, \ref{fig:v5_12}.
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=6cm]
+    {inc/v5_11.PNG}
+
+    \caption{11}
+
+    \label{fig:v5_11}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=6cm]
+    {inc/v5_12.PNG}
+
+    \caption{12}
+
+    \label{fig:v5_12}
+  \end{minipage}
+\end{figure}
+
+\begin{center}
+  \textbf{Просмотр результатов}
+\end{center}
+
+> Summary
+
+Результат на рисунке~\ref{fig:v5_13}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=2.5cm]
+  {inc/v5_13.PNG}
+
+  \caption{13}
+
+  \label{fig:v5_13}
+\end{figure}
+
+\newpage
+
+\begin{center}
+  \textbf{Примечание}
+\end{center}
+
+Support Vector Machine Results: IrisSNN > Quick > Model
+
+Результат на рисунке~\ref{fig:v5_14}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=3cm]
+  {inc/v5_14.PNG}
+
+  \caption{14}
+
+  \label{fig:v5_14}
+\end{figure}
+
+Support Vector Machine Results: IrisSNN > Quick > Descriptive statistics
+
+Результат на рисунке~\ref{fig:v5_15}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=18cm]
+  {inc/v5_15.PNG}
+
+  \caption{15}
+
+  \label{fig:v5_15}
+\end{figure}
+
+Support Vector Machine Results: IrisSNN > Quick > Include \\
+> (Independents, Dependents, Predictions, Accuracy, Confidence) \\
+> Predictions
+
+Результаты на рисунках~\ref{fig:v5_16}, \ref{fig:v5_17}, \ref{fig:v5_18}, \ref{fig:v5_18_2}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=9cm]
+  {inc/v5_16.PNG}
+
+  \caption{16}
+
+  \label{fig:v5_16}
+\end{figure}
+
+\begin{figure}[!hp]
+  \centering
+
+  \includegraphics[width=14cm]
+  {inc/v5_17.PNG}
+
+  \caption{17}
+
+  \label{fig:v5_17}
+\end{figure}
+
+\begin{figure}[!hp]
+  \centering
+
+  \includegraphics[width=14cm]
+  {inc/v5_18.PNG}
+
+  \caption{18}
+
+  \label{fig:v5_18}
+\end{figure}
+
+\begin{figure}[!hp]
+  \centering
+
+  \includegraphics[width=14cm]
+  {inc/v5_18_2.PNG}
+
+  \caption{18}
+
+  \label{fig:v5_18_2}
+\end{figure}
+
+\newpage
+
+Support Vector Machine Results: IrisSNN > Plots \\
+> X-axis > Glucose \\
+> Y-axis > negative (conf.) > Ctrl > positive (conf.) \\
+> Graphs of X and Y
+
+Результаты на рисунках~\ref{fig:v5_19}, \ref{fig:v5_20}.
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=7cm]
+    {inc/v5_19.PNG}
+
+    \caption{19}
+
+    \label{fig:v5_19}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[height=7cm]
+    {inc/v5_20.PNG}
+
+    \caption{20}
+
+    \label{fig:v5_20}
+  \end{minipage}
+\end{figure}
+
+Support Vector Machine Results: IrisSNN > Custom predictions > User defined case \\
+> SLENGTH > 7 \\
+> SWIDTH > 5 \\
+> PLENGTH > 8 \\
+> PWIDTH > 3 \\
+> OK > Predictions
+
+Результаты на рисунках~\ref{fig:21}, \ref{fig:22}, \ref{fig:23}, \ref{fig:24}.
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/ex_21.PNG}
+
+    \caption{21}
+
+    \label{fig:21}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[height=4cm]
+    {inc/ex_22.PNG}
+
+    \caption{22}
+
+    \label{fig:22}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \includegraphics[width=6cm]
+    {inc/ex_24.PNG}
+
+    \caption{24}
+
+    \label{fig:24}
+  \end{minipage}
+\end{figure}
